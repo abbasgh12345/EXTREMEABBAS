@@ -1064,7 +1064,7 @@ local function run(msg, matches)
         return set_descriptionmod(msg, data, target, about)
       end --behroozyaghi
     end
-    if matches[1] == 'gp + ' then
+    if matches[1] == 'gp+' then
       local target = msg.to.id
       if matches[2] == 'name' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked name ")
@@ -1103,7 +1103,7 @@ local function run(msg, matches)
        return lock_group_join(msg, data, target)
      end
    end
-    if matches[1] == 'gp - ' then 
+    if matches[1] == 'gp-' then 
       local target = msg.to.id
       if matches[2] == 'name' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked name ")
@@ -1146,7 +1146,7 @@ local function run(msg, matches)
        return unlock_group_fosh(msg, data, target)
      end
    end
-    if matches[1] == 'gp +' then
+    if matches[1] == 'gp+' then
       local target = msg.to.id
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group settings ")
       return show_group_settingsmod(msg, data, target)
