@@ -240,6 +240,7 @@ function create_config( )
     "set",
     "spam",
     "stats",
+    "echo",
     "support",
     "filter",
     "server_manager",
