@@ -396,7 +396,7 @@ local function username_id(cb_extra, success, result)
       if vusername == member then
         member_username = member
         member_id = v.id
-        if mod_cmd == 'addadmin' then
+        if mod_cmd == 'admin' then
             return admin_user_promote(receiver, member_username, member_id)
         elseif mod_cmd == 'removeadmin' then
             return admin_user_demote(receiver, member_username, member_id)
@@ -460,7 +460,7 @@ function run(msg, matches)
 		chat_info(receiver, returnids, {receiver=receiver})
 	end
 
-    if matches[1] == 'creategroup' and matches[2] then
+    if matches[1] == 'makegp' and matches[2] then
         group_name = matches[2]
         group_type = 'group'
         return create_group(msg)
@@ -470,7 +470,7 @@ function run(msg, matches)
 		return  --Do nothing
 	end
 
-    if matches[1] == 'createrealm' and matches[2] then
+    if matches[1] == 'makerealm' and matches[2] then
         group_name = matches[2]
         group_type = 'realm'
         return create_realm(msg)
@@ -490,7 +490,7 @@ function run(msg, matches)
 			local target = matches[2]
 		    return set_rules(msg, data, target)
 		end
-		if matches[1] == 'lock' then --group lock *
+		if matches[1] == 'gp + ' then --group lock *
 			local target = matches[2]
 		    if matches[3] == 'name' then
 		        return lock_group_name(msg, data, target)
@@ -505,7 +505,7 @@ function run(msg, matches)
 		        return lock_group_flood(msg, data, target)
 		    end
 		end
-		if matches[1] == 'unlock' then --group unlock *
+		if matches[1] == 'gp - ' then --group unlock *
 			local target = matches[2]
 		    if matches[3] == 'name' then
 		        return unlock_group_name(msg, data, target)
@@ -520,12 +520,12 @@ function run(msg, matches)
 		        return unlock_group_flood(msg, data, target)
 		    end
 		end
-		if matches[1] == 'settings' and data[tostring(matches[2])]['settings'] then
+		if matches[1] == 'gp ?' and data[tostring(matches[2])]['settings'] then
 			local target = matches[2]
 		    return show_group_settings(msg, data, target)
 		end
 
-                if matches[1] == 'setname' and is_realm(msg) then
+                if matches[1] == 'name' and is_realm(msg) then
                     local new_name = string.gsub(matches[2], '_', ' ')
                     data[tostring(msg.to.id)]['settings']['set_name'] = new_name
                     save_data(_config.moderation.data, data)
@@ -546,7 +546,7 @@ function run(msg, matches)
 
 	    end 
         end
-    	if matches[1] == 'help' and is_realm(msg) then
+    	if matches[1] == 'hlp' and is_realm(msg) then
       		savelog(msg.to.id, name_log.." ["..msg.from.id.."] Used /help")
      		return help()
     	end
@@ -592,7 +592,7 @@ function run(msg, matches)
 				chat_del_user(chat, user, ok_cb, true)
 			end
 		end
-		if matches[1] == 'addadmin' then
+		if matches[1] == 'admin' then
 			if string.match(matches[2], '^%d+$') then
 				local admin_id = matches[2]
 				print("user "..admin_id.." has been promoted as admin")
@@ -603,7 +603,7 @@ function run(msg, matches)
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
 			end
 		end
-		if matches[1] == 'removeadmin' then
+		if matches[1] == 'radmin' then
 			if string.match(matches[2], '^%d+$') then
 				local admin_id = matches[2]
 				print("user "..admin_id.." has been demoted")
@@ -658,33 +658,30 @@ end
 
 return {
   patterns = {
-    "^[!/](creategroup) (.*)$",
-    "^[!/](createrealm) (.*)$",
+    "^[!/](makegp) (.*)$",
+    "^[!/](makerealm) (.*)$",
     "^[!/](setabout) (%d+) (.*)$",
     "^[!/](setrules) (%d+) (.*)$",
-    "^[!/](setname) (.*)$",
+    "^[!/](name) (.*)$",
     "^[!/](setgpname) (%d+) (.*)$",
-    "^[!/](setname) (%d+) (.*)$",
-        "^[!/](lock) (%d+) (.*)$",
-    "^[!/](unlock) (%d+) (.*)$",
-    "^[!/](setting) (%d+)$",
-        "^[!/](wholist)$",
-        "^[!/](who)$",
-        "^[!/](type)$",
+    "^[!/](name) (%d+) (.*)$",
+    "^[!/](gp +) (%d+) (.*)$",
+    "^[!/](gp -) (%d+) (.*)$",
+    "^[!/](gp ?) (%d+)$",
+    "^[!/](wholist)$",
+    "^[!/](who)$",
+    "^[!/](type)$",
     "^[!/](kill) (chat) (%d+)$",
     "^[!/](kill) (realm) (%d+)$",
-    "^[!/](addadmin) (.*)$", -- sudoers only
-    "^[!/](removeadmin) (.*)$", -- sudoers only
+    "^[!/](admin) (.*)$", -- sudoers only
+    "^[!/](radmin) (.*)$", -- sudoers only
     "^[!/](list) (.*)$",
-        "^[!/](log)$",
-        "^[!/](help)$",
-        "^!!tgservice (.+)$",
+    "^[!/](log)$",
+    "^[!/](hlp)$",
+    "^!!tgservice (.+)$",
   },
   run = run
 }
 end
---Copyright and edit; @behroozyaghi
---Persian Translate; @behroozyaghi
---ch : @nod32team
---کپی بدون ذکر منبع حرام است
+--Developer  by : @unkownhacker
 
