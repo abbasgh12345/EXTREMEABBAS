@@ -5,7 +5,8 @@ function run(msg, matches)
  
   Developer : @unkownhacker
   manager : @Xx_admin1_zaq_xX 
-  Channel : @evilteam
+ 
+  Channel : @evil_team
   
   Open git : https://github.com/abbasgh12345/EXTREMEABBAS
   
