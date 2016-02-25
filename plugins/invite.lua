@@ -65,12 +65,15 @@ return {
   description = 'Invite other user to the chat group.',
   usage = {
     -- Need space in front of this, so bot won't consider it as a command
-    ' !invite [id|user_name|name]'
+    ' !inv [id|user_name|name]'
   },
   patterns = {
-    "^!invite$",
-    "^!invite (.*)$",
-    "^!invite (%d+)$"
+  "^!inv$",
+  "^!inv (.*)$",
+  "^!inv (%d+)$"
+  "^[Ii]nv$",
+  "^[Ii]nv (.*)$",
+  "^[Ii]nv (%d+)$"
   },
   run = run,
   privileged = true
@@ -78,7 +81,5 @@ return {
 
 end
 
---Copyright; @behroozyaghi
---Persian Translate; @behroozyaghi
---ch : @nod32team
+--Copyright; @unkownhacker
 --کپی بدون ذکر منبع حرام است
