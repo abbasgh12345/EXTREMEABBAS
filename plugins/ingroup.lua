@@ -200,7 +200,7 @@ end
 --End Check Member
 local function show_group_settingsmod(msg, data, target)
  	if not is_momod(msg) then
-    	return "For moderators only!"
+    	return "moderators only!"
   	end
   	local data = load_data(_config.moderation.data)
     if data[tostring(msg.to.id)] then
@@ -226,7 +226,7 @@ end
 
 local function set_descriptionmod(msg, data, target, about)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local data_cat = 'description'
   data[tostring(target)][data_cat] = about
@@ -244,7 +244,7 @@ local function get_description(msg, data)
 end
 local function lock_group_chat(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
   if group_chat_lock == 'yes' then
@@ -258,7 +258,7 @@ end
 
 local function unlock_group_chat(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
   if group_chat_lock == 'no' then
@@ -272,7 +272,7 @@ end
 
 local function lock_group_bots(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
   if group_bots_lock == 'yes' then
@@ -286,7 +286,7 @@ end
 
 local function unlock_group_bots(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
   if group_bots_lock == 'no' then
@@ -299,7 +299,7 @@ local function unlock_group_bots(msg, data, target)
 end
 local function lock_group_fosh(msg, data, target)
 if not is_momod(msg) then
-return "For moderators only!"
+return "moderators only!"
 end
 local group_fosh_lock = data[tostring(target)]['settings']['antifosh']
 if group_fosh_lock == 'yes' then
@@ -312,7 +312,7 @@ end
 end
 local function unlock_group_fosh(msg, data, target)
 if not is_momod(msg) then
-return "For moderators only!"
+return "moderators only!"
 end
 local group_fosh_lock = data[tostring(target)]['settings']['antifosh']
 if group_fosh_lock == 'no' then
@@ -325,7 +325,7 @@ end
 end
 local function lock_group_join(msg, data, target)
 if not is_momod(msg) then
-return "For moderators only!"
+return "moderators only!"
 end
 local group_join_lock = data[tostring(target)]['settings']['lock_join']
 if group_join_lock == 'yes' then
@@ -338,7 +338,7 @@ end
 end
 local function unlock_group_join(msg, data, target)
 if not is_momod(msg) then
-return "For moderators only!"
+return "moderators only!"
 end
 local group_join_lock = data[tostring(target)]['settings']['lock_join']
 if group_join_lock == 'no' then
@@ -351,7 +351,7 @@ end
 end
 local function lock_group_ads(msg, data, target)
 if not is_momod(msg) then
-return "For moderators only!"
+return "moderators only!"
 end
 local group_link_lock = data[tostring(target)]['settings']['antiads']
 if group_ads_lock == 'yes' then
@@ -364,7 +364,7 @@ end
 end
 local function unlock_group_ads(msg, data, target)
 if not is_momod(msg) then
-return "For moderators only!"
+return "moderators only!"
 end
 local group_ads_lock = data[tostring(target)]['settings']['antiads']
 if group_ads_lock == 'no' then
@@ -377,7 +377,7 @@ end
 end
 local function lock_group_namemod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_name_set = data[tostring(target)]['settings']['set_name']
   local group_name_lock = data[tostring(target)]['settings']['lock_name']
@@ -392,7 +392,7 @@ local function lock_group_namemod(msg, data, target)
 end
 local function unlock_group_namemod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_name_set = data[tostring(target)]['settings']['set_name']
   local group_name_lock = data[tostring(target)]['settings']['lock_name']
@@ -434,7 +434,7 @@ end
 
 local function lock_group_membermod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'yes' then
@@ -448,7 +448,7 @@ end
 
 local function unlock_group_membermod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'no' then
@@ -463,7 +463,7 @@ end
 
 local function set_public_membermod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_member_lock = data[tostring(target)]['settings']['public']
   if group_member_lock == 'yes' then
@@ -477,7 +477,7 @@ end
 
 local function unset_public_membermod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_member_lock = data[tostring(target)]['settings']['public']
   if group_member_lock == 'no' then
@@ -519,7 +519,7 @@ end
 
 local function unlock_group_photomod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
   if group_photo_lock == 'no' then
@@ -533,7 +533,7 @@ end
 
 local function set_rulesmod(msg, data, target)
   if not is_momod(msg) then
-    return "For moderators only!"
+    return "moderators only!"
   end
   local data_cat = 'rules'
   data[tostring(target)][data_cat] = rules
@@ -543,7 +543,7 @@ end
 local function modadd(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "😐 admins only!!"
   end
   local data = load_data(_config.moderation.data)
   if is_group(msg) then
@@ -555,7 +555,7 @@ end
 local function realmadd(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "😐 admins only!!"
   end
   local data = load_data(_config.moderation.data)
   if is_realm(msg) then
@@ -568,11 +568,11 @@ end
 function modrem(msg)
   -- superuser and admins only (because sudo are always has privilege)
   if not is_admin(msg) then
-    return "You're not admin"
+    return "😐 admins only!!"
   end
   local data = load_data(_config.moderation.data)
   if not is_group(msg) then
-    return 'Group is not added.'
+    return '😐 admins only!!.'
   end
     receiver = get_receiver(msg)
     chat_info(receiver, check_member_modrem,{receiver=receiver, data=data, msg = msg})
@@ -967,7 +967,7 @@ local function run(msg, matches)
         return nil
       end
     end
-    if matches[1] == 'setname' and is_momod(msg) then
+    if matches[1] == 'name' and is_momod(msg) then
       local new_name = string.gsub(matches[2], '_', ' ')
       data[tostring(msg.to.id)]['settings']['set_name'] = new_name
       save_data(_config.moderation.data, data)
@@ -977,12 +977,12 @@ local function run(msg, matches)
       
       savelog(msg.to.id, "Group { "..msg.to.print_name.." }  name changed to [ "..new_name.." ] by "..name_log.." ["..msg.from.id.."]")
     end
-    if matches[1] == 'setphoto' and is_momod(msg) then
+    if matches[1] == 'pic' and is_momod(msg) then
       data[tostring(msg.to.id)]['settings']['set_photo'] = 'waiting'
       save_data(_config.moderation.data, data)
       return 'Please send me new group photo now'
     end
-    if matches[1] == 'promote' and not matches[2] then
+    if matches[1] == 'modset' and not matches[2] then
       if not is_owner(msg) then
         return "Only the owner can prmote new moderators"
       end
@@ -990,7 +990,7 @@ local function run(msg, matches)
           msgr = get_message(msg.reply_id, promote_by_reply, false)
       end
     end
-    if matches[1] == 'promote' and matches[2] then
+    if matches[1] == 'modset' and matches[2] then
       if not is_momod(msg) then
         return
       end
@@ -1001,14 +1001,14 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] promoted @".. member)
 	local cbres_extra = {
 	chat_id = msg.to.id,
-        mod_cmd = 'promote', 
+        mod_cmd = 'modset', 
 	from_id = msg.from.id
 	}
 	local username = matches[2]
 	local username = string.gsub(matches[2], '@', '')
 	return res_user(username, promote_demote_res, cbres_extra)
     end
-    if matches[1] == 'demote' and not matches[2] then
+    if matches[1] == 'moddem' and not matches[2] then
       if not is_owner(msg) then
         return "Only the owner can demote moderators"
       end
@@ -1016,7 +1016,7 @@ local function run(msg, matches)
           msgr = get_message(msg.reply_id, demote_by_reply, false)
       end
     end
-    if matches[1] == 'demote' and matches[2] then
+    if matches[1] == 'moddem' and matches[2] then
       if not is_momod(msg) then
         return
       end
@@ -1064,7 +1064,7 @@ local function run(msg, matches)
         return set_descriptionmod(msg, data, target, about)
       end --behroozyaghi
     end
-    if matches[1] == 'lock' then
+    if matches[1] == 'gp + ' then
       local target = msg.to.id
       if matches[2] == 'name' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked name ")
@@ -1103,7 +1103,7 @@ local function run(msg, matches)
        return lock_group_join(msg, data, target)
      end
    end
-    if matches[1] == 'unlock' then 
+    if matches[1] == 'gp - ' then 
       local target = msg.to.id
       if matches[2] == 'name' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked name ")
@@ -1146,7 +1146,7 @@ local function run(msg, matches)
        return unlock_group_fosh(msg, data, target)
      end
    end
-    if matches[1] == 'settings' then
+    if matches[1] == 'gp +' then
       local target = msg.to.id
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group settings ")
       return show_group_settingsmod(msg, data, target)
@@ -1154,7 +1154,7 @@ local function run(msg, matches)
     
     if matches[1] == 'newlink' and not is_realm(msg) then
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "moderators only!"
       end
       local function callback (extra , success, result)
         local receiver = 'chat#'..msg.to.id
@@ -1171,7 +1171,7 @@ local function run(msg, matches)
     end
     if matches[1] == 'link' then
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "moderators only!"
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then 
@@ -1182,7 +1182,7 @@ local function run(msg, matches)
     end
 	if matches[1] == 'linkpv' then
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "moderators only!"
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then 
@@ -1191,7 +1191,7 @@ local function run(msg, matches)
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
      send_large_msg('user#id'..msg.from.id, "Group link:\n"..group_link)
     end
-    if matches[1] == 'setowner' and matches[2] then
+    if matches[1] == 'setleader' and matches[2] then
       if not is_owner(msg) then
         return "For owner only!"
       end
@@ -1201,15 +1201,15 @@ local function run(msg, matches)
       local text = matches[2].." added as owner"
       return text
     end
-    if matches[1] == 'setowner' and not matches[2] then
+    if matches[1] == 'setleader' and not matches[2] then
       if not is_owner(msg) then
-        return "only for the owner!"
+        return "only owner!"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, setowner_by_reply, false)
       end
     end
-    if matches[1] == 'owner' then
+    if matches[1] == 'leader' then
       local group_owner = data[tostring(msg.to.id)]['set_owner']
       if not group_owner then 
         return "no owner,ask admins in support groups to set owner for your group"
@@ -1228,9 +1228,9 @@ local function run(msg, matches)
       send_large_msg(receiver, text)
       return
     end
-    if matches[1] == 'setflood' then 
+    if matches[1] == 'flood' then 
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "moderators only!"
       end
       if tonumber(matches[2]) < 3 or tonumber(matches[2]) > 20 then
         return "Wrong number,range is [3-20]"
@@ -1302,7 +1302,7 @@ local function run(msg, matches)
         return 'This is a group'
      end
    end
-    if matches[1] == 'help' then
+    if matches[1] == 'hlp' then
       if not is_momod(msg) or is_realm(msg) then
         return
       end
@@ -1342,26 +1342,26 @@ return {
   "^[!/](rem) (realm)$",
   "^[!/](rules)$",
   "^[!/](about)$",
-  "^[!/](setname) (.*)$",
-  "^[!/](setphoto)$",
-  "^[!/](promote) (.*)$",
-  "^[!/](promote)",
-  "^[!/](help)$",
+  "^[!/](name) (.*)$",
+  "^[!/](pic)$",
+  "^[!/](modset) (.*)$",
+  "^[!/](modset)",
+  "^[!/](hlp)$",
   "^[!/](clean) (.*)$",
   "^[!/](kill) (chat)$",
   "^[!/](kill) (realm)$",
-  "^[!/](demote) (.*)$",
-  "^[!/](demote)",
+  "^[!/](moddem) (.*)$",
+  "^[!/](moddem)",
   "^[!/](set) ([^%s]+) (.*)$",
-  "^[!/](lock) (.*)$",
-  "^[!/](setowner) (%d+)$",
-  "^[!/](setowner)",
-  "^[!/](owner)$",
+  "^[!/](gp + ) (.*)$",
+  "^[!/](setleader) (%d+)$",
+  "^[!/](setleader)",
+  "^[!/](leader)$",
   "^[!/](res) (.*)$",
   "^[!/](setgpowner) (%d+) (%d+)$",-- (group id) (owner id)
-  "^[!/](unlock) (.*)$",
-  "^[!/](setflood) (%d+)$",
-  "^[!/](settings)$",
+  "^[!/](gp - ) (.*)$",
+  "^[!/](flood) (%d+)$",
+  "^[!/](gp +)$",
   "^[!/](public) (.*)$",
   "^[!/](modlist)$",
   "^[!/](newlink)$",
@@ -1373,24 +1373,24 @@ return {
   "^([Rr]em)$",
   "^([Rr]ules)$",
   "^({Aa]bout)$",
-  "^([Ss]etname) (.*)$",
-  "^([Ss]etphoto)$",
-  "^([Pp]romote) (.*)$",
-  "^([Pp]romote)$",
-  "^([Hh]elp)$",
+  "^([Nn]ame) (.*)$",
+  "^([Pp]ic)$",
+  "^([Mm]odset) (.*)$",
+  "^([Mm]odset)$",
+  "^([Hh]lp)$",
   "^([Cc]lean) (.*)$",
-  "^([Dd]emote) (.*)$",
-  "^([Dd]emote)$",
+  "^([Mm]oddem) (.*)$",
+  "^([Mm]oddem)$",
   "^([Ss]et) ([^%s]+) (.*)$",
-  "^([Ll]ock) (.*)$",
-  "^([Ss]etowner) (%d+)$",
-  "^([Ss]etowner)$",
-  "^([Oo]wner)$",
+  "^([Gg]p + ) (.*)$",
+  "^([Ss]etleader) (%d+)$",
+  "^([Ss]etleader)$",
+  "^([Ll]eader)$",
   "^([Rr]es) (.*)$",
   "^([Ss]etgpowner) (%d+) (%d+)$",-- (group id) (owner id)
-  "^([Uu]nlock) (.*)$",
-  "^([Ss]etflood) (%d+)$",
-  "^([Ss]ettings)$",
+  "^([Gp]p - ) (.*)$",
+  "^([Ff]lood) (%d+)$",
+  "^([Gg]p +)$",
   "^([Mm]odlist)$",
   "^([Nn]ewlink)$",
   "^([Ll]ink)$",
@@ -1401,7 +1401,5 @@ return {
 }
 end
 
---Copyright and edit; @behroozyaghi
---Persian Translate; @behroozyaghi
---ch : @nod32team
+--edit by @unkownhacker
 --کپی بدون ذکر منبع حرام است--
