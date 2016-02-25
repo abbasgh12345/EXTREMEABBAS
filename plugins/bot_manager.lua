@@ -6,7 +6,7 @@ local function set_bot_photo(msg, success, result)
     os.rename(result, file)
     print('File moved to:', file)
     set_profile_photo(file, ok_cb, false)
-    send_large_msg(receiver, 'عکس پروفایل ربات تغییر کرد', ok_cb, false)
+    send_large_msg(receiver, 'Done.', ok_cb, false)
     redis:del("bot:photo")
   else
     print('Error downloading: '..msg.id)
@@ -123,7 +123,7 @@ local function run(msg,matches)
     	redis:set("bot:photo", "waiting")
     	return 'عکس رباتو بفرست بیاد'
     end
-    if matches[1] == "markread" then
+    if matches[1] == "read" then
     	if matches[2] == "on" then
     		redis:set("bot:markread", "on")
     		return "Mark read > on"
@@ -138,14 +138,14 @@ local function run(msg,matches)
     	send_large_msg("user#id"..matches[2],matches[3])
     	return "پیام شما از طریق پیوی ربات ارسال شد"
     end
-    if matches[1] == "block" then
+    if matches[1] == "block +" then
     	if is_admin2(matches[2]) then
     		return "شما نمیتوانید ادمین را بلاک کنید"
     	end
     	block_user("user#id"..matches[2],ok_cb,false)
     	return "یوزر مورد نظر از ربات بلاک شد"
     end
-    if matches[1] == "unblock" then
+    if matches[1] == "block -" then
     	unblock_user("user#id"..matches[2],ok_cb,false)
     	return "یوزر انبلاک شد"
     end
@@ -174,10 +174,10 @@ return {
   patterns = {
 	"^[!/](pm) (%d+) (.*)$",
 	"^[!/](import) (.*)$",
-	"^[!/](unblock) (%d+)$",
-	"^[!/](block) (%d+)$",
-	"^[!/](markread) (on)$",
-	"^[!/](markread) (off)$",
+	"^[!/](block -) (%d+)$",
+	"^[!/](block +) (%d+)$",
+	"^[!/](read) (on)$",
+	"^[!/](read) (off)$",
 	"^[!/](setbotphoto)$",
 	"%[(photo)%]",
 	"^[!/](contactlist)$",
