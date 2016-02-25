@@ -26,17 +26,17 @@ local function list_all_plugins(only_enabled)
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
     --  ✔ enabled, ❌ disabled
-    local status = '☹️
+    local status = '❌'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '😇' 
+        status = '✔' 
       end
       nact = nact+1
     end
-    if not only_enabled or status == '😇' then
+    if not only_enabled or status == '✔' then
       -- get the name
       v = string.match (v, "(.*)%.lua")
       text = text..nsum..'> '..status..' '..v..'\n'
@@ -51,17 +51,17 @@ local function list_plugins(only_enabled)
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
     --  ✔ enabled, ❌ disabled
-    local status = '☹️
+    local status = '❌'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '😇' 
+        status = '✔' 
       end
       nact = nact+1
     end
-    if not only_enabled or status == '😇' then
+    if not only_enabled or status == '✔' then
       -- get the name
       v = string.match (v, "(.*)%.lua")
       text = text..status..' '..v..'\n'
@@ -82,7 +82,7 @@ local function enable_plugin( plugin_name )
   print('checking if '..plugin_name..' exists')
   -- Check if plugin is enabled
   if plugin_enabled(plugin_name) then
-    return plugin_name..' power on'
+    return plugin_name..' is enabled'
   end
   -- Checks if plugin exists
   if plugin_exists(plugin_name) then
@@ -93,7 +93,7 @@ local function enable_plugin( plugin_name )
     -- Reload the plugins
     return reload_plugins( )
   else
-    return plugin_name..' does not exists '
+    return plugin_name..' does not exists'
   end
 end
 
@@ -105,7 +105,7 @@ local function disable_plugin( name, chat )
   local k = plugin_enabled(name)
   -- Check if plugin is enabled
   if not k then
-    return name..' is power off'
+    return name..' not enabled'
   end
   -- Disable and reload
   table.remove(_config.enabled_plugins, k)
@@ -129,7 +129,7 @@ local function disable_plugin_on_chat(receiver, plugin)
   _config.disabled_plugin_on_chat[receiver][plugin] = true
 
   save_config()
-  return plugin..' power off in gp'
+  return plugin..' disabled in group'
 end
 
 local function reenable_plugin_on_chat(receiver, plugin)
@@ -142,12 +142,12 @@ local function reenable_plugin_on_chat(receiver, plugin)
   end
 
   if not _config.disabled_plugin_on_chat[receiver][plugin] then
-    return 'it doesnt power off'
+    return 'This plugin is not disabled'
   end
 
   _config.disabled_plugin_on_chat[receiver][plugin] = false
   save_config()
-  return plugin..' power on again'
+  return plugin..' enabled again'
 end
 
 local function run(msg, matches)
@@ -220,4 +220,3 @@ return {
 }
 
 end
---edit by @unkownhacker
