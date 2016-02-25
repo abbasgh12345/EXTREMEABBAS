@@ -1,15 +1,15 @@
 do
 
 function run(msg, matches)
-  return 'NOD32-BOT v8'.. VERSION .. [[ 
+  return 'evil-BOT v2'.. VERSION .. [[ 
  
-  Developer : @Behroozyaghi
+  Developer : @unkownhacker
+  manager : @Xx_admin1_zaq_xX 
+  Channel : @evilteam
   
-  Channel : @Nod32team
+  Open git : https://github.com/abbasgh12345/EXTREMEABBAS
   
-  Open git : https://github.com/BH-YAGHI/NOD32-BOT.git
-  
-  NOD32 VERSION 8
+  evil VERSION 2
   
   All rights reserved.
   __________________]]
@@ -19,13 +19,10 @@ return {
   description = "Shows bot version", 
   usage = "!version: Shows bot version",
   patterns = {
-    "^!version$"
+    "^!ver$"
   }, 
   run = run 
 }
 
 end
---Copyright and edit; @behroozyaghi
---Persian Translate; @behroozyaghi
---ch : @nod32team
---کپی بدون ذکر منبع حرام است
+-
